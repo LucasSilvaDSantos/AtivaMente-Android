@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estudo de qualidade"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/revisar_conteudos_estudados_recentemente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Revisar conteúdos estudados recentemente" />
+
+    <Button
+        android:id="@+id/fazer_anotacoes_resumos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fazer anotações e resumos" />
+
+    <Button
+        android:id="@+id/treinar_memorizacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Treinar memorização (repetição ativa, flashcards, etc.)" />
+
+    <Button
+        android:id="@+id/atividade_relaxante_ler_banho_quente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Atividade relaxante (ler, banho quente)" />
+
+    <Button
+        android:id="@+id/resolver_questoes_revisao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resolver questões de revisão" />
+
+</LinearLayout>

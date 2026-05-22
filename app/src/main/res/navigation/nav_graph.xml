@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.example.ativamente.view.fragment.ExploreFragment"
+        android:label="Explore"
+        tools:layout="@layout/fragment_explore">
+        <action
+            android:id="@+id/action_exploreFragment_to_sonoDeQualidadeFragment"
+            app:destination="@id/sonoDeQualidadeFragment" />
+        <action
+            android:id="@+id/action_exploreFragment_to_organizacaoPessoalFragment"
+            app:destination="@id/organizacaoPessoalFragment" />
+        <action
+            android:id="@+id/action_exploreFragment_to_diminuaAnsiedadeFragment"
+            app:destination="@id/diminuaAnsiedadeFragment" />
+        <action
+            android:id="@+id/action_exploreFragment_to_diminuaFobiaSocialFragment"
+            app:destination="@id/diminuaFobiaSocialFragment" />
+        <action
+            android:id="@+id/action_exploreFragment_to_estudoDeQualidadeFragment"
+            app:destination="@id/estudoDeQualidadeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.ativamente.view.fragment.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.ativamente.view.fragment.ProfileFragment"
+        android:label="Você"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/sonoDeQualidadeFragment"
+        android:name="com.example.ativamente.view.fragment.SonoDeQualidadeFragment"
+        android:label="Sono de qualidade"
+        tools:layout="@layout/fragment_sono_de_qualidade" />
+
+    <fragment
+        android:id="@+id/organizacaoPessoalFragment"
+        android:name="com.example.ativamente.view.fragment.OrganizacaoPessoalFragment"
+        android:label="Organização pessoal"
+        tools:layout="@layout/fragment_organizacao_pessoal" />
+
+    <fragment
+        android:id="@+id/diminuaAnsiedadeFragment"
+        android:name="com.example.ativamente.view.fragment.DiminuaAnsiedadeFragment"
+        android:label="Diminua sua Ansiedade"
+        tools:layout="@layout/fragment_diminua_ansiedade" />
+
+    <fragment
+        android:id="@+id/diminuaFobiaSocialFragment"
+        android:name="com.example.ativamente.view.fragment.DiminuaFobiaSocialFragment"
+        android:label="Diminua sua Fobia Social"
+        tools:layout="@layout/fragment_diminua_fobia_social" />
+
+    <fragment
+        android:id="@+id/estudoDeQualidadeFragment"
+        android:name="com.example.ativamente.view.fragment.EstudoDeQualidadeFragment"
+        android:label="Estudo de qualidade"
+        tools:layout="@layout/fragment_estudo_de_qualidade" />
+
+</navigation>

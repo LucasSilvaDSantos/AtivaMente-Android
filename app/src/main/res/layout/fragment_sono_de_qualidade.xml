@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sono de qualidade"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/acordar_sempre_horario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Acordar sempre no mesmo horário" />
+
+    <Button
+        android:id="@+id/alongamento_respiracao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alongamento e respiração" />
+
+    <Button
+        android:id="@+id/tomar_cha_calmante"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tomar chá calmante" />
+
+    <Button
+        android:id="@+id/desconectar_telas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Desconectar de telas" />
+
+    <Button
+        android:id="@+id/dormir_sempre_horario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dormir sempre no mesmo horário" />
+
+</LinearLayout>

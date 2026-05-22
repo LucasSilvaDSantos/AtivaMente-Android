@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="✨Explore suas possibilidades✨"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rotinas:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/button_sono_de_qualidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sono de qualidade" />
+
+    <Button
+        android:id="@+id/button_organizacao_pessoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Organização pessoal" />
+
+    <Button
+        android:id="@+id/button_diminua_ansiedade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Diminua sua Ansiedade" />
+
+    <Button
+        android:id="@+id/button_diminua_fobia_social"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Diminua sua Fobia Social" />
+
+    <Button
+        android:id="@+id/button_estudo_de_qualidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Estudo de qualidade" />
+
+</LinearLayout>

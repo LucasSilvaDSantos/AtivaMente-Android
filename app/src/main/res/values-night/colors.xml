@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Redefinindo cores para o Modo Escuro com tons de roxo -->
+
+    <!-- O fundo principal se torna um roxo bem escuro -->
+    <color name="beige_background">#1F1D2B</color>
+    
+    <!-- O fundo dos cartões se torna um roxo escuro mais claro -->
+    <color name="white">#2D2A3E</color>
+    
+    <!-- A cor do texto permanece branca para legibilidade -->
+    <color name="black">#FFFFFF</color>
+
+    <!-- As cores de destaque permanecem as mesmas -->
+    <color name="light_green">#4527A0</color>
+    <color name="logout_red">#E57373</color>
+
+</resources>
