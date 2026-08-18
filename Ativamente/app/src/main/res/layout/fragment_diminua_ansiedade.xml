@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diminua sua Ansiedade"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/respiracao_consciente_meditacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Respiração consciente/ meditação" />
+
+    <Button
+        android:id="@+id/exercicio_leve_caminhada_alongamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Exercício leve (caminhada, alongamento)" />
+
+    <Button
+        android:id="@+id/encerramento_dia_revisar_calendario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Encerramento do dia / revisar calendário" />
+
+    <Button
+        android:id="@+id/atividade_relaxante_ler_banho_quente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Atividade relaxante (ler, banho quente)" />
+
+    <Button
+        android:id="@+id/desconexao_total_sem_telas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Desconexão total (sem telas)" />
+
+</LinearLayout>

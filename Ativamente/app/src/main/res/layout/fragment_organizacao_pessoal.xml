@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Organização pessoal"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/acordar_higiene_arrumar_cama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Acordar, higiene, arrumar a cama" />
+
+    <Button
+        android:id="@+id/exercicio_leve"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Exercício leve, ativa corpo e mente" />
+
+    <Button
+        android:id="@+id/almoco_pausa_real"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Almoço e pausa real" />
+
+    <Button
+        android:id="@+id/tomar_banho_jantar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="tomar banho e jantar" />
+
+    <Button
+        android:id="@+id/tempo_pessoal_dormir_cedo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tempo pessoal e dormir cedo" />
+
+</LinearLayout>

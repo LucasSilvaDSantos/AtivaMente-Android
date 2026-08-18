@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="light_green">#A8D8B9</color>
+    <color name="beige_background">#FDF8F0</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="logout_red">#FF0000</color>
+
+    <!-- Nova Identidade Visual Verde (Substituindo o Roxo) -->
+    <color name="primary_green">#A9D3BF</color>
+    <color name="primary_container_green">#CEE9D9</color>
+    <color name="on_primary_green">#96BD5F</color>
+    <color name="secondary_green">#7DD78E</color>
+    <color name="surface_green">#F7FBF4</color>
+
+    <!-- Mapeamento de nomes antigos para manter compatibilidade com layouts XML -->
+    <color name="dark_purple">#79D5B0</color> <!-- Agora é um Verde Escuro -->
+    <color name="medium_purple">#63D19E</color> <!-- Agora é um Verde Médio -->
+    <color name="accent_purple">#A9D3BF</color> <!-- Agora é o Verde Principal -->
+</resources>

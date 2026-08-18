@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="beige_background">#141218</color> <color name="white">#1D1B20</color> <color name="black">#FFFFFF</color>
+    <color name="light_green">#5C00FF</color>
+    <color name="logout_red">#E57373</color>
+
+    <color name="primary_purple">#7059A8</color>
+    <color name="primary_container_purple">#4700FF</color>
+    <color name="on_primary_purple">#3700FF</color>
+    <color name="secondary_purple">#CCC2DC</color>
+    <color name="surface_purple">#1C1B1F</color>
+
+    <color name="dark_purple">#5A3997</color>
+    <color name="medium_purple">#DBC5FF</color>
+    <color name="accent_purple">#D0BCFF</color>
+</resources>

@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.Ativamente" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_purple</item>
+        <item name="colorOnPrimary">@color/on_primary_purple</item>
+        <item name="colorPrimaryContainer">@color/primary_container_purple</item>
+        <item name="colorOnPrimaryContainer">@color/primary_purple</item>
+
+        <item name="colorSecondary">@color/secondary_purple</item>
+        <item name="colorOnSecondary">#332D41</item>
+        <item name="colorSecondaryContainer">#4A4458</item>
+        <item name="colorOnSecondaryContainer">#E8DEF8</item>
+
+        <item name="colorTertiary">#7D5260</item>
+        <item name="colorOnTertiary">#FFFFFF</item>
+
+        <item name="android:windowBackground">@color/dark_purple</item>
+        <item name="colorSurface">@color/surface_purple</item>
+        <item name="colorOnSurface">#E6E1E5</item>
+        <item name="colorSurfaceVariant">#49454F</item>
+        <item name="colorOnSurfaceVariant">#CAC4D0</item>
+
+        <item name="colorOutline">#938F99</item>
+    </style>
+</resources>

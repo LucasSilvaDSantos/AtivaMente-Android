@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.Ativamente" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_green</item>
+        <item name="colorOnPrimary">#FFFFFF</item> <item name="colorPrimaryContainer">@color/primary_container_green</item>
+        <item name="colorOnPrimaryContainer">@color/on_primary_green</item> <item name="colorSecondary">@color/secondary_green</item>
+        <item name="colorOnSecondary">#FFFFFF</item> <item name="colorSecondaryContainer">#D1E8D5</item>
+        <item name="colorOnSecondaryContainer">#0C1F12</item> <item name="colorTertiary">#3B6470</item>
+        <item name="colorOnTertiary">#FFFFFF</item> <item name="android:windowBackground">@color/surface_green</item>
+        <item name="colorSurface">@color/surface_green</item>
+        <item name="colorOnSurface">#191C1A</item> <item name="colorSurfaceVariant">@color/primary_container_green</item>
+        <item name="colorOnSurfaceVariant">#404943</item> <item name="colorOutline">#707973</item>
+    </style>
+
+    <style name="Theme.Ativamente" parent="Base.Theme.Ativamente" />
+</resources>
