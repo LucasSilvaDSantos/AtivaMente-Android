@@ -20,7 +20,7 @@ O **AtivaMente** foi desenvolvido com foco em ajudar usuários a estruturarem su
 O aplicativo oferece uma experiência de organização diária:
 
 * 📝 **Gestão de Tarefas e Rotinas:** Criação, edição e exclusão de tarefas diárias ou de rotinas (com seleção dos dias da semana).
-* 🔔 ** Notificações Precisas:** Agendamento em segundo plano que dispara lembretes com hora marcada na barra de notificações.
+* 🔔 ** Notificações:** Agendamento em segundo plano que dispara lembretes com hora marcada na barra de notificações.
 * 📊 **Explore e % de Desempenho:** Acompanhamento de metas diárias em porcentagem , sequência de dias e tarefas concluídas.
 * 🌗 **Temas:** Alternância entre Modo Claro e Modo Escuro.
 * 🔒 **Autenticação Segura:** Cadastro de conta, login e logout gerenciados via Firebase Authentication.
