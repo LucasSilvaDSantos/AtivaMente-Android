@@ -12,7 +12,7 @@ import com.example.ativamente.model.Task;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Task.class}, version = 2, exportSchema = false)
+@Database(entities = {Task.class}, version = 6, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract TaskDao taskDao();

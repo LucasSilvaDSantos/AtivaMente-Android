@@ -8,20 +8,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.example.ativamente.AtivamenteApp;
 import com.example.ativamente.R;
-import com.google.android.material.switchmaterial.SwitchMaterial;
+import com.example.ativamente.databinding.FragmentProfileBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileFragment extends Fragment {
 
-    private SwitchMaterial themeSwitch;
+    private FragmentProfileBinding binding;
     private SharedPreferences sharedPreferences;
+    private FirebaseAuth mAuth;
 
     private EditText nameEditText;
     private EditText phoneEditText;
@@ -36,74 +41,80 @@ public class ProfileFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        binding = FragmentProfileBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        mAuth = FirebaseAuth.getInstance();
         sharedPreferences = requireActivity().getSharedPreferences(AtivamenteApp.PREFS_NAME, Context.MODE_PRIVATE);
 
-        setupViews(view);
+        setupViews();
         loadData();
         setupListeners();
     }
 
-    private void setupViews(View view) {
-        // Name
-        nameEditText = view.findViewById(R.id.edit_text_name);
-        editNameButton = view.findViewById(R.id.edit_name_button);
+    private void setupViews() {
+        nameEditText = binding.editTextName;
+        editNameButton = binding.editNameButton;
 
-        // Phone
-        View phoneItem = view.findViewById(R.id.item_phone);
-        ((ImageView) phoneItem.findViewById(R.id.item_icon)).setImageResource(android.R.drawable.ic_menu_call);
-        phoneEditText = phoneItem.findViewById(R.id.item_edit_text);
+        binding.itemPhone.itemIcon.setImageResource(android.R.drawable.ic_menu_call);
+        phoneEditText = binding.itemPhone.itemEditText;
         phoneEditText.setHint("Número de telefone");
-        editPhoneButton = phoneItem.findViewById(R.id.edit_button);
+        editPhoneButton = binding.itemPhone.editButton;
 
-        // Email
-        View emailItem = view.findViewById(R.id.item_email);
-        ((ImageView) emailItem.findViewById(R.id.item_icon)).setImageResource(android.R.drawable.ic_menu_send);
-        emailEditText = emailItem.findViewById(R.id.item_edit_text);
+        binding.itemEmail.itemIcon.setImageResource(android.R.drawable.ic_menu_send);
+        emailEditText = binding.itemEmail.itemEditText;
         emailEditText.setHint("Endereço de Email");
-        editEmailButton = emailItem.findViewById(R.id.edit_button);
+        editEmailButton = binding.itemEmail.editButton;
 
-        // Password
-        View passwordItem = view.findViewById(R.id.item_password);
-        ((ImageView) passwordItem.findViewById(R.id.item_icon)).setImageResource(android.R.drawable.ic_menu_set_as);
-        passwordEditText = passwordItem.findViewById(R.id.item_edit_text);
+        binding.itemPassword.itemIcon.setImageResource(android.R.drawable.ic_menu_set_as);
+        passwordEditText = binding.itemPassword.itemEditText;
         passwordEditText.setHint("Senha");
-        editPasswordButton = passwordItem.findViewById(R.id.edit_button);
+        editPasswordButton = binding.itemPassword.editButton;
 
-        // Theme Switch
-        themeSwitch = view.findViewById(R.id.switch_theme);
         int currentNightMode = sharedPreferences.getInt(AtivamenteApp.KEY_THEME, AppCompatDelegate.MODE_NIGHT_NO);
-        themeSwitch.setChecked(currentNightMode == AppCompatDelegate.MODE_NIGHT_YES);
+        binding.switchTheme.setChecked(currentNightMode == AppCompatDelegate.MODE_NIGHT_YES);
 
-        // Logout Button
-        Button logoutButton = view.findViewById(R.id.button_logout);
-        logoutButton.setOnClickListener(v -> {
-            if (getActivity() != null) {
-                getActivity().finish();
-            }
+        binding.buttonLogout.setOnClickListener(v -> {
+            new AlertDialog.Builder(requireContext())
+                    .setTitle("Sair")
+                    .setMessage("Deseja mesmo sair da sua conta?")
+                    .setPositiveButton("Sair", (dialog, which) -> {
+                        mAuth.signOut();
+                        Navigation.findNavController(v).navigate(R.id.action_profileFragment_to_loginFragment);
+                    })
+                    .setNegativeButton("Cancelar", null)
+                    .show();
         });
     }
 
     private void loadData() {
-        nameEditText.setText(sharedPreferences.getString("name", "Nome"));
+        FirebaseUser user = mAuth.getCurrentUser();
+        
+        if (user != null) {
+            nameEditText.setText(user.getDisplayName() != null ? user.getDisplayName() : sharedPreferences.getString("name", "Nome"));
+            emailEditText.setText(user.getEmail());
+        } else {
+            nameEditText.setText(sharedPreferences.getString("name", "Nome"));
+            emailEditText.setText(sharedPreferences.getString("email", ""));
+        }
+        
         phoneEditText.setText(sharedPreferences.getString("phone", ""));
-        emailEditText.setText(sharedPreferences.getString("email", ""));
-        passwordEditText.setText(sharedPreferences.getString("password", ""));
+        passwordEditText.setText(sharedPreferences.getString("password", "********"));
     }
 
     private void setupListeners() {
         setupEditableField(nameEditText, editNameButton, "name");
         setupEditableField(phoneEditText, editPhoneButton, "phone");
-        setupEditableField(emailEditText, editEmailButton, "email");
-        setupEditableField(passwordEditText, editPasswordButton, "password");
 
-        themeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+        editEmailButton.setVisibility(View.GONE);
+        editPasswordButton.setVisibility(View.GONE);
+
+        binding.switchTheme.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 sharedPreferences.edit().putInt(AtivamenteApp.KEY_THEME, AppCompatDelegate.MODE_NIGHT_YES).apply();
@@ -126,5 +137,11 @@ public class ProfileFragment extends Fragment {
                 button.setText("Editar");
             }
         });
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

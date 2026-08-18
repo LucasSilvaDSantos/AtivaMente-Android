@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Redefinindo cores para o Modo Escuro com tons de roxo -->
+    <color name="calendar_bg">#353535</color>
 
-    <!-- O fundo principal se torna um roxo bem escuro -->
-    <color name="beige_background">#1F1D2B</color>
-    
-    <!-- O fundo dos cartões se torna um roxo escuro mais claro -->
-    <color name="white">#2D2A3E</color>
-    
-    <!-- A cor do texto permanece branca para legibilidade -->
-    <color name="black">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="logout_red">#FF0000</color>
 
-    <!-- As cores de destaque permanecem as mesmas -->
-    <color name="light_green">#4527A0</color>
-    <color name="logout_red">#E57373</color>
+    <color name="profile_background">#454545</color>
 
+    <color name="dark_purple">#2D1B4E</color>
+    <color name="medium_purple">#4A307D</color>
+    <color name="accent_purple">#5E35B1</color>
+    <color name="text_lavender">#5E35B1</color>
+
+    <color name="primary_green">#5406E4</color>
+    <color name="primary_container_green">#3B13A0</color>
+    <color name="on_primary_green">#333333</color>
+    <color name="secondary_green">#C8B8E8</color>
+    <color name="surface_green">#1C162E</color>
+    <color name="light_green">#3E00E4</color>
+
+     <color name="beige_background">#1A192E</color>
+    <color name="explore_bg">#121228</color>
+    <color name="explore_card_bg">#1E0064</color>
+    <color name="explore_accent">#FFFFFF</color>
+    <color name="explore_text_secondary">#C8B8E8</color>
 </resources>

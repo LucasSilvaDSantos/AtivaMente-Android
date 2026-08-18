@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -40,6 +41,8 @@ public class HomeFragment extends Fragment implements TaskAdapter.OnTaskClickLis
     private TaskAdapter taskAdapter;
     private DateAdapter dateAdapter;
     private TextView monthTextView;
+    private TextView emptyStateTextView;
+    private TextView completedCounterTextView;
 
     @Nullable
     @Override
@@ -52,6 +55,8 @@ public class HomeFragment extends Fragment implements TaskAdapter.OnTaskClickLis
         super.onViewCreated(view, savedInstanceState);
 
         monthTextView = view.findViewById(R.id.text_view_month);
+        emptyStateTextView = view.findViewById(R.id.text_empty_state);
+        completedCounterTextView = view.findViewById(R.id.text_view_completed_counter);
 
         RecyclerView taskRecyclerView = view.findViewById(R.id.recycler_view_tasks);
         taskRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -72,14 +77,30 @@ public class HomeFragment extends Fragment implements TaskAdapter.OnTaskClickLis
             if (rotina != null && !rotina.isEmpty()) {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", new Locale("pt", "BR"));
                 String currentDate = dateFormat.format(new Date());
-                Task task = new Task(rotina, "", currentDate, "", false);
-                taskViewModel.insert(task, null);
+                String userId = com.google.firebase.auth.FirebaseAuth.getInstance().getUid();
+                if (userId != null) {
+                    Task task = new Task(rotina, "", currentDate, "", false, userId);
+                    taskViewModel.insert(task, null);
+                } else {
+                    Toast.makeText(getContext(), "Erro ao identificar usuário para rotina", Toast.LENGTH_SHORT).show();
+                }
                 getArguments().clear();
             }
         }
 
         taskViewModel.getTasks().observe(getViewLifecycleOwner(), tasks -> {
             taskAdapter.setTasks(tasks);
+            if (tasks == null || tasks.isEmpty()) {
+                emptyStateTextView.setVisibility(View.VISIBLE);
+            } else {
+                emptyStateTextView.setVisibility(View.GONE);
+            }
+        });
+
+        taskViewModel.getCompletedCount().observe(getViewLifecycleOwner(), count -> {
+            if (count != null) {
+                completedCounterTextView.setText("Concluídas: " + count);
+            }
         });
 
         setupDateSelector(dateRecyclerView);
@@ -125,19 +146,78 @@ public class HomeFragment extends Fragment implements TaskAdapter.OnTaskClickLis
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition();
                 Task taskToDelete = taskAdapter.getTaskAt(position);
-                taskViewModel.delete(taskToDelete);
-                cancelNotification(taskToDelete);
-                Toast.makeText(getContext(), "Tarefa deletada", Toast.LENGTH_SHORT).show();
+                String selectedDate = taskViewModel.getSelectedDate().getValue();
+
+                if (taskToDelete.isRoutine() && selectedDate != null) {
+                    // Diálogo especial para Rotinas
+                    new AlertDialog.Builder(requireContext())
+                            .setTitle("Apagar Rotina")
+                            .setMessage("Como deseja apagar esta rotina?")
+                            .setPositiveButton("Apagar todas as repetições", (dialog, which) -> {
+                                taskViewModel.delete(taskToDelete);
+                                cancelNotification(taskToDelete);
+                                Toast.makeText(getContext(), "Rotina removida completamente", Toast.LENGTH_SHORT).show();
+                            })
+                            .setNeutralButton("Apagar apenas hoje", (dialog, which) -> {
+                                String currentExceptions = taskToDelete.getExcludedDates() != null ? taskToDelete.getExcludedDates() : "";
+                                taskToDelete.setExcludedDates(currentExceptions + selectedDate + ",");
+                                taskViewModel.update(taskToDelete);
+                                Toast.makeText(getContext(), "Tarefa removida apenas para hoje", Toast.LENGTH_SHORT).show();
+                            })
+                            .setNegativeButton("Cancelar", (dialog, which) -> {
+                                taskAdapter.notifyItemChanged(position);
+                            })
+                            .setCancelable(false)
+                            .show();
+                } else {
+                    new AlertDialog.Builder(requireContext())
+                            .setTitle("Apagar Tarefa")
+                            .setMessage("Tem certeza que deseja apagar esta tarefa?")
+                            .setPositiveButton("Apagar", (dialog, which) -> {
+                                taskViewModel.delete(taskToDelete);
+                                cancelNotification(taskToDelete);
+                                Toast.makeText(getContext(), "Tarefa deletada", Toast.LENGTH_SHORT).show();
+                            })
+                            .setNegativeButton("Cancelar", (dialog, which) -> {
+                                taskAdapter.notifyItemChanged(position);
+                            })
+                            .setCancelable(false)
+                            .show();
+                }
             }
         }).attachToRecyclerView(recyclerView);
     }
 
     @Override
     public void onTaskStatusChanged(Task task, boolean isCompleted) {
-        task.setCompleted(isCompleted);
-        taskViewModel.update(task);
         if (isCompleted) {
-            cancelNotification(task);
+            String selectedDate = taskViewModel.getSelectedDate().getValue();
+            if (task.isRoutine() && selectedDate != null) {
+
+                String currentExceptions = task.getExcludedDates() != null ? task.getExcludedDates() : "";
+                task.setExcludedDates(currentExceptions + selectedDate + ",");
+                taskViewModel.update(task);
+
+                Task completedOccurrence = new Task(
+                        task.getTitle(),
+                        task.getDescription(),
+                        selectedDate,
+                        task.getTime(),
+                        true,
+                        task.getUserId()
+                );
+                taskViewModel.insert(completedOccurrence, null);
+                
+                Toast.makeText(getContext(), "Rotina concluída hoje!", Toast.LENGTH_SHORT).show();
+            } else {
+
+                task.setCompleted(true);
+                taskViewModel.update(task);
+                cancelNotification(task);
+            }
+        } else {
+            task.setCompleted(false);
+            taskViewModel.update(task);
         }
     }
 

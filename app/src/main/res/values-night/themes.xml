@@ -1,7 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Ativamente" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="Theme.Ativamente" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/accent_purple</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">@color/medium_purple</item>
+        <item name="colorOnPrimaryContainer">#FFFFFF</item>
+
+        <item name="android:windowBackground">@color/dark_purple</item>
+        <item name="colorSurface">@color/dark_purple</item>
+        <item name="colorSurfaceVariant">@color/medium_purple</item>
+        <item name="colorSurfaceContainer">@color/accent_purple</item>
+        <item name="colorSurfaceContainerHigh">@color/accent_purple</item>
+
+        <item name="colorOnSurface">#FFFFFF</item>
+        <item name="colorOnSurfaceVariant">@color/text_lavender</item>
+        <item name="colorOutline">@color/medium_purple</item>
     </style>
 </resources>

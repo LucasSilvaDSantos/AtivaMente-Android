@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="light_green">#A8D8B9</color>
-    <color name="beige_background">#FDF8F0</color>
-    <color name="black">#000000</color>
+
+    <color name="calendar_bg">#FFFFFF</color>
     <color name="white">#FFFFFF</color>
-    <color name="logout_red">#FF0000</color> <!-- Adicionado uma cor vermelha para o botão de logout -->
+    <color name="black">#1C1B1F</color>
+    <color name="logout_red">#FF3B30</color>
+
+    <color name="profile_background">#FFFFFF</color>
+
+    <color name="primary_green">#A9D3BF</color>
+    <color name="primary_container_green">#CEE9D9</color>
+    <color name="on_primary_green">#101410</color>
+    <color name="secondary_green">#3A3A3A</color>
+    <color name="surface_green">#FFFFFF</color>
+    <color name="light_green">#A9D3BF</color>
+
+    <color name="dark_purple">#2D1B4E</color>
+    <color name="medium_purple">#4A307D</color>
+    <color name="accent_purple">#5E35B1</color>
+    <color name="text_lavender">#5E35B1</color>
+
+    <color name="beige_background">#FBF8F2</color>
+    <color name="explore_bg">#2D1B4E</color>
+    <color name="explore_card_bg">#4A307D</color>
+    <color name="explore_accent">#FFFFFF</color>
+    <color name="explore_text_secondary">#DCD1F7</color>
 </resources>

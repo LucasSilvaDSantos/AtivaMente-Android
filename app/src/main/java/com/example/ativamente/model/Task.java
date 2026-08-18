@@ -17,16 +17,26 @@ public class Task implements Serializable {
     private String date;
     private String time;
     private boolean isCompleted;
+    private String userId;
+    private boolean isRoutine;
+    private String daysOfWeek; // Ex: "1,3,5" para Seg, Qua, Sex
+    private String excludedDates = "";
 
-    public Task(String title, String description, String date, String time, boolean isCompleted) {
+    public Task() {
+    }
+
+    public Task(String title, String description, String date, String time, boolean isCompleted, String userId) {
         this.title = title;
         this.description = description;
         this.date = date;
         this.time = time;
         this.isCompleted = isCompleted;
+        this.userId = userId;
+        this.isRoutine = false;
+        this.daysOfWeek = "";
+        this.excludedDates = "";
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -81,5 +91,37 @@ public class Task implements Serializable {
 
     public void setCompleted(boolean completed) {
         isCompleted = completed;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public boolean isRoutine() {
+        return isRoutine;
+    }
+
+    public void setRoutine(boolean routine) {
+        isRoutine = routine;
+    }
+
+    public String getDaysOfWeek() {
+        return daysOfWeek;
+    }
+
+    public void setDaysOfWeek(String daysOfWeek) {
+        this.daysOfWeek = daysOfWeek;
+    }
+
+    public String getExcludedDates() {
+        return excludedDates;
+    }
+
+    public void setExcludedDates(String excludedDates) {
+        this.excludedDates = excludedDates;
     }
 }

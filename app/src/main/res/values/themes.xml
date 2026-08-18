@@ -1,9 +1,21 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Ativamente" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
+    <style name="Theme.Ativamente" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_green</item>
+        <item name="colorOnPrimary">@color/on_primary_green</item>
+        <item name="colorPrimaryContainer">@color/primary_container_green</item>
+        <item name="colorOnPrimaryContainer">@color/on_primary_green</item>
 
-    <style name="Theme.Ativamente" parent="Base.Theme.Ativamente" />
+        <item name="colorSecondary">@color/secondary_green</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+
+        <item name="android:windowBackground">@color/surface_green</item>
+        <item name="colorSurface">@color/surface_green</item>
+        <item name="colorSurfaceVariant">@color/primary_container_green</item>
+        <item name="colorSurfaceContainer">@color/primary_green</item>
+        <item name="colorSurfaceContainerHigh">@color/primary_green</item>
+
+        <item name="colorOnSurface">@color/on_primary_green</item>
+        <item name="colorOnSurfaceVariant">@color/secondary_green</item>
+        <item name="colorOutline">@color/secondary_green</item>
+    </style>
 </resources>

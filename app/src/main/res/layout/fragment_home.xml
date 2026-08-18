@@ -7,7 +7,6 @@
     android:background="@color/beige_background"
     tools:context=".view.fragment.HomeFragment">
 
-    <!-- Background Image -->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,14 +24,25 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         tools:text="Month" />
 
-    <!-- The rest of the layout remains on top -->
+    <TextView
+        android:id="@+id/text_view_completed_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Concluídas: 0"
+        android:textColor="@color/dark_purple"
+        android:textStyle="bold" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_dates"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_below="@id/text_view_month"
-        android:background="@color/white" 
+        android:layout_marginTop="8dp"
+        android:background="@color/calendar_bg"
+        android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -42,6 +52,20 @@
         android:layout_below="@id/recycler_view_dates"
         android:padding="8dp"
         tools:listitem="@layout/task_item" />
+
+    <TextView
+        android:id="@+id/text_empty_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/recycler_view_dates"
+        android:layout_marginTop="100dp"
+        android:padding="32dp"
+        android:gravity="center"
+        android:text="Nenhuma tarefa para este dia.\nQue tal tirar um tempo para você?"
+        android:textColor="@color/medium_purple"
+        android:textSize="18sp"
+        android:visibility="gone" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add_task"

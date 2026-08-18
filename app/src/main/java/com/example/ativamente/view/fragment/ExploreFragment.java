@@ -8,37 +8,85 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
+import androidx.lifecycle.ViewModelProvider;
 
-import com.example.ativamente.R;
+import com.example.ativamente.databinding.FragmentExploreBinding;
+import com.example.ativamente.viewmodel.TaskViewModel;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class ExploreFragment extends Fragment {
+
+    private FragmentExploreBinding binding;
+    private TaskViewModel taskViewModel;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_explore, container, false);
+        binding = FragmentExploreBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
 
-        view.findViewById(R.id.button_sono_de_qualidade).setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(R.id.action_exploreFragment_to_sonoDeQualidadeFragment);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        taskViewModel = new ViewModelProvider(requireActivity()).get(TaskViewModel.class);
+
+        setupRealData();
+    }
+
+    private void setupRealData() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String today = dateFormat.format(new Date());
+
+        taskViewModel.getTasksCountForDate(today).observe(getViewLifecycleOwner(), total -> {
+
+            taskViewModel.getCompletedTasksCountForDate(today).observe(getViewLifecycleOwner(), completed -> {
+                updateDailyProgress(total, completed);
+            });
         });
 
-        view.findViewById(R.id.button_organizacao_pessoal).setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(R.id.action_exploreFragment_to_organizacaoPessoalFragment);
+        taskViewModel.getTotalCompletedCount().observe(getViewLifecycleOwner(), totalCompleted -> {
+            binding.textTotalCompleted.setText(String.valueOf(totalCompleted));
+            updateLevelAndXp(totalCompleted);
         });
 
-        view.findViewById(R.id.button_diminua_ansiedade).setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(R.id.action_exploreFragment_to_diminuaAnsiedadeFragment);
-        });
+        // Modo de sequência Lógica complexa para fazer depois
+        binding.textStreakCount.setText("3 dias");
+    }
 
-        view.findViewById(R.id.button_diminua_fobia_social).setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(R.id.action_exploreFragment_to_diminuaFobiaSocialFragment);
-        });
+    private void updateDailyProgress(Integer total, Integer completed) {
+        int t = (total != null) ? total : 0;
+        int c = (completed != null) ? completed : 0;
 
-        view.findViewById(R.id.button_estudo_de_qualidade).setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(R.id.action_exploreFragment_to_estudoDeQualidadeFragment);
-        });
+        int percentage = (t > 0) ? (int) (((float) c / t) * 100) : 0;
 
-        return view;
+        binding.progressDaily.setProgress(percentage);
+        binding.textProgressPercentage.setText(percentage + "%");
+        binding.textTasksSummary.setText("Você concluiu " + c + " de " + t + " tarefas hoje!");
+    }
+
+    private void updateLevelAndXp(Integer totalCompleted) {
+        int total = (totalCompleted != null) ? totalCompleted : 0;
+
+
+        int level = (total / 20) + 1;
+        int currentXp = (total % 20) * 50;
+        int maxXp = 1000;
+
+        int xpPercentage = (int) (((float) currentXp / maxXp) * 100);
+
+        binding.textLevelTitle.setText("Seu Nível: " + level);
+        binding.textXpStatus.setText(currentXp + " / " + maxXp + " XP");
+        binding.progressXp.setProgress(xpPercentage);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }
