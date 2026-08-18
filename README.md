@@ -1,6 +1,6 @@
 #  AtivaMente — Gestão de Tarefas e Rotinas
 
-Aplicativo Android nativo focado em produtividade pessoal, organização de rotinas diárias e acompanhamento de progreção, com funcionamento offline e notificações em tempo real.
+Aplicativo Android nativo focado em produtividade pessoal, organização de rotinas diárias e acompanhamento de progreção, com funcionamento offline e notificações.
 
 ---
 
