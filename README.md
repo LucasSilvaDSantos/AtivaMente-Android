@@ -21,10 +21,10 @@ O aplicativo oferece uma experiência de organização diária:
 
 * 📝 **Gestão de Tarefas e Rotinas:** Criação, edição e exclusão de tarefas diárias ou de rotinas (com seleção dos dias da semana).
 * 🔔 ** Notificações Precisas:** Agendamento em segundo plano que dispara lembretes com hora marcada na barra de notificações.
-* 📊 **Gamificação e Métricas:** Acompanhamento de metas diárias em porcentagem, contagem de sequências (*streaks*) e ganho progressivo de XP.
-* 🌗 **Temas Dinâmicos:** Alternância fluida e instantânea entre Modo Claro e Modo Escuro nativos.
+* 📊 **Explore e % de Desempenho:** Acompanhamento de metas diárias em porcentagem , sequência de dias e tarefas concluídas.
+* 🌗 **Temas:** Alternância entre Modo Claro e Modo Escuro.
 * 🔒 **Autenticação Segura:** Cadastro de conta, login e logout gerenciados via Firebase Authentication.
-* 📅 **Calendário Dinâmico:** Navegação rápida entre os dias da semana para visualização isolada de cada jornada.
+* 📅 **Calendário Dinâmico:** Navegação entre os dias da semana para visualização isolada de cada dia.
 
 ---
 
