@@ -63,12 +63,12 @@ com.example.ativamente/
 ```
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/63266bcd-5673-4211-aee6-ecc0b29a5af8" width="30%" />
-  <img src="https://github.com/user-attachments/assets/af01ee95-4dc5-4cb6-9711-ce83da551d24" width="30%" />
-  <img src="https://github.com/user-attachments/assets/7b46e3ca-379f-4780-8621-50d4b1adf578" width="30%" />
-  <img src="https://github.com/user-attachments/assets/10fdcbae-e674-4040-ac07-698204e64b4c" width="30%" />
-  <img src="https://github.com/user-attachments/assets/ffb6f606-0e7f-45eb-96fc-25da1e13653f" width="30%" />
-  <img src="https://github.com/user-attachments/assets/ec8bd7bd-cff4-4b95-8e79-ebba0f9d7209" width="30%" />
-  <img src="https://github.com/user-attachments/assets/9445bc62-131b-4383-a6cc-00e82910fcdb" width="30%" />
+  <img src="https://github.com/user-attachments/assets/63266bcd-5673-4211-aee6-ecc0b29a5af8" width="20%" />
+  <img src="https://github.com/user-attachments/assets/af01ee95-4dc5-4cb6-9711-ce83da551d24" width="20%" />
+  <img src="https://github.com/user-attachments/assets/7b46e3ca-379f-4780-8621-50d4b1adf578" width="20%" />
+  <img src="https://github.com/user-attachments/assets/10fdcbae-e674-4040-ac07-698204e64b4c" width="20%" />
+  <img src="https://github.com/user-attachments/assets/ffb6f606-0e7f-45eb-96fc-25da1e13653f" width="20%" />
+  <img src="https://github.com/user-attachments/assets/ec8bd7bd-cff4-4b95-8e79-ebba0f9d7209" width="20%" />
+  <img src="https://github.com/user-attachments/assets/9445bc62-131b-4383-a6cc-00e82910fcdb" width="20%" />
 </p>
 
