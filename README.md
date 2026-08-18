@@ -60,7 +60,7 @@ com.example.ativamente/
 ├── viewmodel/      # Camada de gerenciamento de estado e regras de UI
 ├── MainActivity    # Activity com barra de navegação
 └── SplashActivity  # Tela inicial de abertura e verificação de sessão
-
+```
 <img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/63266bcd-5673-4211-aee6-ecc0b29a5af8" />
 <img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/af01ee95-4dc5-4cb6-9711-ce83da551d24" />
 <img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/7b46e3ca-379f-4780-8621-50d4b1adf578" />
